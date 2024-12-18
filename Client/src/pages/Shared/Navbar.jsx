@@ -55,69 +55,67 @@ function Navbar() {
   return (
     <div className="fixed top-0 w-full z-50 max-w-6xl mx-auto">
       {/* DESKTOP */}
-      
-        <div className="hidden lg:block animate-in fade-in zoom-in bg-slate-50 py-2 px-4 rounded-full mt-5 shadow-2xl">
-          <div className="flex justify-between mx-4 items-center">
-            <img
-              className="h-14 w-auto"
-              src="https://i.ibb.co.com/9ncLQzX/newlogo-removebg-preview.png"
-              alt=""
-            />
-            <div className="flex gap-[20px] xl:gap-[50px] text-[18px] items-center select-none">
-              {links.map((item, index) => (
-                <div key={index} className="flex gap-2">
-                  <NavLink
-                    to={item.route}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "relative rounded-2xl px-5 py-2 overflow-hidden group bg-[#00053d] relative hover:bg-gradient-to-r hover:from-[#00053d] hover:to-[#00053d9c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#00053d] transition-all ease-out duration-300"
-                        : "hover:text-[#1e40af] cursor-pointer flex items-center gap-2 font-[500] text-gray"
-                    }
-                  >
-                    <p>{item.name}</p>
-                  </NavLink>
 
-                  {item.badgeCount ? (
-                    <div className="h-8 w-8 rounded-full bg-primary flex justify-center items-center font-semibold text-white">
-                      {item.badgeCount}
-                    </div>
-                  ) : (
-                    <div />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center justify-between lg:gap-[20px] select-none">
-              {user ? (
-                <>
-                  <div className="relative  text-xl">
-                   
+      <div className="hidden lg:block animate-in fade-in zoom-in bg-slate-50 py-2 px-4 rounded-full mt-5 shadow-2xl">
+        <div className="flex justify-between mx-4 items-center">
+          <img
+            className="h-14 w-auto"
+            src="https://i.ibb.co.com/f1fwPSh/travelleo.png"
+            alt=""
+          />
+          <div className="flex gap-[20px] xl:gap-[50px] text-[18px] items-center select-none">
+            {links.map((item, index) => (
+              <div key={index} className="flex gap-2">
+                <NavLink
+                  to={item.route}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "relative rounded-2xl px-5 py-2 overflow-hidden group bg-[#00053d] relative hover:bg-gradient-to-r hover:from-[#00053d] hover:to-[#00053d9c] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#00053d] transition-all ease-out duration-300"
+                      : "hover:text-[#1e40af] cursor-pointer flex items-center gap-2 font-[500] text-gray"
+                  }
+                >
+                  <p>{item.name}</p>
+                </NavLink>
+
+                {item.badgeCount ? (
+                  <div className="h-8 w-8 rounded-full bg-primary flex justify-center items-center font-semibold text-white">
+                    {item.badgeCount}
                   </div>
-                  <Dropdown />
-                </>
-              ) : (
-                <>
-                  <Link to="/login">
-                    <button
-                      text="Sign in"
-                      width="contain"
-                      className="bg-white border text-[#31373D] border-[#EDEEF0] hover:bg-white"
-                    />
-                  </Link>
-                  <Link to="/signUp">
-                    <button text="Start for free" width="contain" />
-                  </Link>
-                </>
-              )}
-            </div>
+                ) : (
+                  <div />
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="flex items-center justify-between lg:gap-[20px] select-none">
+            {user ? (
+              <>
+                <div className="relative  text-xl"></div>
+                <Dropdown />
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <button
+                    text="Sign in"
+                    width="contain"
+                    className="bg-white border text-[#31373D] border-[#EDEEF0] hover:bg-white"
+                  />
+                </Link>
+                <Link to="/signUp">
+                  <button text="Start for free" width="contain" />
+                </Link>
+              </>
+            )}
           </div>
         </div>
-   
+      </div>
 
       {/* MOBILE */}
       <div
-        className={`block text lg:hidden shadow-sm fixed top-0 w-full z-[999] bg-white py-4 animate-in fade-in zoom-in ${menu ? "bg-primary py-2" : ""
-          }`}
+        className={`block text lg:hidden shadow-sm fixed top-0 w-full z-[999] bg-white py-4 animate-in fade-in zoom-in ${
+          menu ? "bg-primary py-2" : ""
+        }`}
       >
         <div className="flex justify-between mx-[10px]">
           <Link to="/">
@@ -129,10 +127,13 @@ function Navbar() {
           </Link>
           <div className="flex items-center gap-[40px]">
             {menu ? (
-              <GiTireIronCross className="cursor-pointer text-black" onClick={toggleMenu} />
+              <GiTireIronCross
+                className="cursor-pointer text-black"
+                onClick={toggleMenu}
+              />
             ) : (
               <img
-                src='https://i.ibb.co.com/55qdSRv/icons8-hamburger-menu-48.png'
+                src="https://i.ibb.co.com/55qdSRv/icons8-hamburger-menu-48.png"
                 alt="logo"
                 className="cursor-pointer"
                 onClick={toggleMenu}
@@ -168,7 +169,6 @@ function Navbar() {
               <div className="flex flex-col gap-[20px]">
                 {user ? (
                   <div className="relative">
-                
                     <Dropdown />
                   </div>
                 ) : (
